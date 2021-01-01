@@ -1,0 +1,51 @@
+server:
+  error:
+    whitelabel.enabled: false
+    include-stacktrace: always
+  http2.enabled: true
+  compression.enabled: true
+
+logging.level.root: info
+
+management.info.git.mode: full
+
+spring:
+  application.name: codingtest
+  profiles.active: development
+  mvc.throw-exception-if-no-handler-found: true
+  resources.add-mappings: false
+  jackson:
+    time-zone: Asia/Seoul
+    default-property-inclusion: non_empty
+    deserialization:
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+  jpa:
+    database: h2
+    properties:
+      hibernate:
+        cache.use_second_level_cache: true
+        region.factory_class: org.hibernate.cache.jcache.JCacheRegionFactory
+        javax.cache.provider: com.github.benmanes.caffeine.jcache.spi.CaffeineCachingProvider
+      javax.persistence.sharedCache.mode: ENABLE_SELECTIVE
+  cache:
+    type: JCACHE
+    jcache.provider: com.github.benmanes.caffeine.jcache.spi.CaffeineCachingProvider
+
+feign:
+  httpclient.enabled: true
+  hystrix.enabled: true
+  compression:
+    response.enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 200
+        readTimeout: 1000
+        decode404: true
+        loggerLevel: basic
+
+security.jwt.key: fbb7d77229ac7dc5b32aecbf8942e72d
+
+openapi:
+  kakao.host: https://dapi.kakao.com
+  naver.host: https://openapi.naver.com

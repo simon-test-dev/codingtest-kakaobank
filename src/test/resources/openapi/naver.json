@@ -1,0 +1,63 @@
+{
+  "lastBuildDate": "Tue, 29 Dec 2020 11:02:17 +0900",
+  "total": 5,
+  "start": 1,
+  "display": 5,
+  "items": [
+    {
+      "title": "일번지<b>곱창</b>막창",
+      "link": "http://www.일번지곱창.kr/",
+      "category": "한식>곱창,막창,양",
+      "description": "",
+      "telephone": "",
+      "address": "서울특별시 중구 을지로2가 199-64",
+      "roadAddress": "서울특별시 중구 명동9길 33",
+      "mapx": "310450",
+      "mapy": "551936"
+    },
+    {
+      "title": "양가<b>곱창</b>",
+      "link": "",
+      "category": "한식>곱창,막창,양",
+      "description": "",
+      "telephone": "",
+      "address": "서울특별시 종로구 종로1가 24 르메이에르종로타운 3층",
+      "roadAddress": "서울특별시 종로구 종로 19 르메이에르종로타운 3층",
+      "mapx": "310078",
+      "mapy": "552516"
+    },
+    {
+      "title": "왕십리황소<b>곱창</b> 2호점",
+      "link": "",
+      "category": "한식>곱창,막창,양",
+      "description": "",
+      "telephone": "",
+      "address": "서울특별시 종로구 관철동 43-1",
+      "roadAddress": "서울특별시 종로구 종로8길 13",
+      "mapx": "310453",
+      "mapy": "552407"
+    },
+    {
+      "title": "청어람 망원점",
+      "link": "",
+      "category": "한식>곱창,막창,양",
+      "description": "",
+      "telephone": "",
+      "address": "서울특별시 마포구 망원동 482-3",
+      "roadAddress": "서울특별시 마포구 망원로 97",
+      "mapx": "303671",
+      "mapy": "551215"
+    },
+    {
+      "title": "김덕후의<b>곱창</b>조 홍대본점",
+      "link": "http://www.gopchangjo.com/",
+      "category": "육류,고기요리>곱창,막창,양",
+      "description": "",
+      "telephone": "",
+      "address": "서울특별시 마포구 상수동 92-2",
+      "roadAddress": "서울특별시 마포구 와우산로 51-9",
+      "mapx": "304989",
+      "mapy": "550217"
+    }
+  ]
+}

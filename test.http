@@ -1,0 +1,32 @@
+### 회원 가입
+POST http://localhost:8080/v1/users/sign-up
+Content-Type: application/json
+
+{
+    "username": "test",
+    "password": "test"
+}
+
+### 로그인
+POST http://localhost:8080/v1/users/sign-in
+Content-Type: application/json
+
+{
+    "username": "test",
+    "password": "test"
+}
+
+
+### 장소 검색
+GET http://localhost:8080/v1/places/search?keyword=뱅크
+Accept: application/json
+Authentication: Bearer <token 로그인시 나온 토큰을 설정>
+
+### 내 검색 히스토리
+GET http://localhost:8080/v1/users/histories/search
+Accept: application/json
+Authentication: Bearer <token 로그인시 나온 토큰을 설정>
+
+### 인기 키워드 목록
+GET http://localhost:8080/v1/places/popular-keywords
+Accept: application/json

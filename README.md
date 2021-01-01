@@ -1,24 +1,26 @@
 # Project Convention
 
 ## Environment
+
 1. Java version: 11.0+
-    * [jenv](https://www.jenv.be/) 사용
+    - [jenv](https://www.jenv.be/) 사용
 2. Default Encoding: UTF-8
 3. Default File System: Linux
 4. Open API Key Required
-    * `-Dopenapi.kakao.key=kakaoKey`, `-Dopenapi.naver.client.id=naverClientId`, `-Dopenapi.naver.client.secret=naverClientSecret`
+    - `-Dopenapi.kakao.key=kakaoKey`, `-Dopenapi.naver.client.id=naverClientId`, `-Dopenapi.naver.client.secret=naverClientSecret`
 
----- 
+---
 
 # Build
 
-- gradle wrapper 사용 `./gradlew {task}`
+-   gradle wrapper 사용 `./gradlew {task}`
 
 ## Testing
 
 1. Unit Test
+
 ```bash
-./gradlew test 
+./gradlew test
 ```
 
 2. test all, checkstyle, spotbugs, pmd, jacoco coverage
@@ -29,31 +31,31 @@
 
 ## Packaging
 
-###                            
+###
 
 ```bash
 ./gradlew clean devSnapshot
 ```
 
-----
+---
 
 ### 고민
 
 1. Architecture
     - DDD 와 Uncle Bob 에 Clean Architecture 를 차용
-    - 해당 문제에 대해서 과한 모델링이나 도메인이 커지고 복잡해 질것을 감안함
+    - 과한 모델링이나 도메인이 커지고 복잡해 질것을 예상하여 작성
 2. 대용량 트래픽
-    - 검색 히스토리를 DB 로 쌓는건 올지 않다고 생각함
-    - 비동기로 로그처리하는 방법이 있겠으나, 구현 안함
+    - 검색 히스토리를 DB 로 쌓는건 적절하지 않다고 생각함
+    - 로그 저장을 비동기(Async Queue)로 하면 처리하는 방법이 있겠으나, 구현 안함
     - 성능을 뽑으려면 DB 구조에 유리한 스키마를 작성해야 하나 제약사항이 JPA 로 한정하여, 구현 안함
-    - JPA OneToMany 관계른 데이터 많아졌을때 배치사이즈 등 튜닝을 한다해도, 종극에는 비정규화해야 해서 검색 로그 테이블을 따로 구성함
+    - JPA OneToMany 관계는 데이터 많아 졌을때 배치사이즈 등 튜닝을 한다해도, 결국에는 비정규화해야 해서, DAO 형태로 사용
     - 이것도 성능을 더 뽑으려면 테이블 파티셔닝과 통계 테이블을 활용하는 방법이 좋아보임
 3. DTO 많음
     - 서비스가 커지고 오래되면 domain 모델이 외부로 노출되는것 보다 Interface Layer DTO(ViewModel) 는 필수로 생각함
 4. JPA 모델링
     - 도메인 객체에 JPA 모델링을 하게되면 DB 에 의한 설계로 변질됨. SRP 위반
     - L2 Cache 로 Caffeine cache 처리해야 하나 설정만 함
-    - 간단한 구현 위해 EntityManager 를 직접쓰거나 하지 않고 이름이 중복이지만 JpaRepository 를 씀
+    - 간단한 구현 위해 EntityManager 를 직접쓰거나 하지 않고 JpaRepository 를 씀
 5. Domain Model
     - 회원은 명확히 Aggregate Root 로 보였으나, 장소는 현재 조건에서는 Value Object 로 색각함
     - 회원 id 같은경우 db 사용시 generate value 를 쓰는게 성능상 유리하나, 회원 id 의 생성을 db 에 맞기는건 선호하지 않아서 uuid 로 처리함.
@@ -89,12 +91,12 @@
 6. 외부 라이브러리
     - Spring Eco System
         - [Spring Cloud Netflix Hystrix](https://github.com/spring-cloud/spring-cloud-netflix)
-          > Circuit Breaker
+            > Circuit Breaker
         - [Spring Cloud Open Feign](https://github.com/spring-cloud/spring-cloud-openfeign)
-          > REST API Client
+            > REST API Client
     - [lombok](https://github.com/rzwitserloot/lombok)
-      > Syntax Sugar
+        > Syntax Sugar
     - [problem-spring-web](https://github.com/zalando/problem-spring-web)
-      > Exception Handling
+        > Exception Handling
     - [jjwt](https://github.com/jwtk/jjwt)
-      > JWT token
+        > JWT token
